@@ -116,7 +116,16 @@ $(document).ready(function () {
     }
 
     if (markerX && markerY) {
-        L.marker([markerX, markerY]).addTo(map);
+        var myIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/25/25613.png',
+            iconSize: [38, 95],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76],
+    });
+
+        
+
+        L.marker([markerX, markerY], {icon: myIcon}).addTo(map);
     }
 
     map.setView(centreLatLng, zoom)
