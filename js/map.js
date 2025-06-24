@@ -116,7 +116,9 @@ $(document).ready(function () {
     }
 
     if (markerX && markerY) {
-        L.marker([Number(markerX), Number(markerY)]).addTo(map);
+        const markerPos = new Position(Number(markerX), Number(markerY), map.plane);
+        const markerLatLng = markerPos.toLatLng(map);
+        L.marker(markerLatLng).addTo(map);
     }
 
     map.setView(centreLatLng, zoom)
