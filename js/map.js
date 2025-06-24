@@ -25,6 +25,9 @@ $(document).ready(function () {
     const urlCentreZ = currentUrl.searchParams.get("centreZ");
     const urlZoom = currentUrl.searchParams.get("zoom");
 
+    const markerX = currentUrl.searchParams.get("markerX");
+    const markerY = currentUrl.searchParams.get("markerY");
+
     const urlRegionID = currentUrl.searchParams.get("regionID");
 
     var map = L.map('map', {
@@ -110,6 +113,10 @@ $(document).ready(function () {
         const centrePos = region.toCentrePosition()
         centreLatLng = centrePos.toLatLng(map);
         zoom = urlZoom || 9;
+    }
+
+    if (markerX && markerY) {
+        L.marker([markerX, markerY]).addTo(map);
     }
 
     map.setView(centreLatLng, zoom)
