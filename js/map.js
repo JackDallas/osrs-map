@@ -92,7 +92,7 @@ $(document).ready(function () {
 
         const zoom = map.getZoom();
 
-        window.history.replaceState(null, null, `?centreX=${centrePos.x}&centreY=${centrePos.y}&centreZ=${centrePos.z}&zoom=${zoom}`);
+        window.history.replaceState(null, null, `?centreX=${centrePos.x}&centreY=${centrePos.y}&centreZ=${centrePos.z}&zoom=${zoom}&markerX=${markerX}&markerY=${markerY}`);
     };
 
     map.on('move', setUrlParams);
